@@ -13,6 +13,10 @@ def create_app(config_name):
   from config import config_options
   app.config[config_options[config_name]]
 
+  #registering blueprint
+  from .main import main as main_blueprint
+  app.register_blueprint(main_blueprint)
+
 
 
   # initialize extensions
