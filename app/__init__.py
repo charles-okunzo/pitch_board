@@ -9,6 +9,10 @@ def create_app(config_name):
   
   app = Flask(__name__)
 
+  #configurations
+  from config import config_options
+  app.config[config_options[config_name]]
+
 
 
   # initialize extensions
