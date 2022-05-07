@@ -2,6 +2,6 @@ from . import main
 
 
 
-main.route('/')
+@main.route('/')
 def index():
-  return 'Hello world'
+  return '<h1>Hello world</h1>'
