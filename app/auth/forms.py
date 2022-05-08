@@ -13,10 +13,10 @@ class RegistrationForm(FlaskForm):
 
 
   def validate_username(self, data_field):
-    if User.query.filter_by(username = data_field.data):
+    if User.query.filter_by(username = data_field.data).first():
       raise AttributeError('An account with this email exists')
 
 
   def validate_email(self, data_field):
-    if User.query.filter_by(email = data_field.data):
+    if User.query.filter_by(email = data_field.data).first():
       raise AttributeError('Username exists')

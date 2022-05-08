@@ -1,5 +1,3 @@
-from crypt import methods
-from turtle import title
 from flask import render_template, redirect, url_for
 from .forms import RegistrationForm
 from ..models import User
