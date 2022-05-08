@@ -24,7 +24,7 @@ def login():
 
 @auth.route('/register', methods = ['GET', 'POST'])
 def register():
-  title = 'Pitch Board | Log In'
+  title = 'Pitch Board | Sign Up'
   form = RegistrationForm()
   if form.validate_on_submit():
     user = User(username = form.username.data, email = form.email.data, password = form.password.data)

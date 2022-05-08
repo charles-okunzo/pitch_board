@@ -8,7 +8,7 @@ body{
   display: grid;
   place-items: center;
 }
-input::placeholder{
+input[type='text'],input[type='password']{
   background-color: transparent;
 }
 input:focus{
@@ -17,4 +17,8 @@ input:focus{
 .mx-auto{
   border:  1px solid yellow;
   border-radius: 5%;
+}
+input[type='submit']{
+  width: 100%;
+  margin-bottom: 1.2em;
 }
