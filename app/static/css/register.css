@@ -17,6 +17,7 @@ input:focus{
   color: #fff;
 }
 .mx-auto{
+  backdrop-filter: blur(2px);
   border:  1px solid yellow;
   border-radius: 5%;
 }
