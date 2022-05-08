@@ -1,0 +1,17 @@
+.navbar{
+  background-color: #2f5280;
+  color: #fff !important;
+}
+
+.nav li a, a.navbar-brand{
+  color: #fff;
+  transition: all 500ms ease-in-out;
+}
+
+.board{
+  color: yellow;
+}
+
+.nav li a:hover{
+  color: #2f5280;
+}

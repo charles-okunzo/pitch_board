@@ -10,9 +10,11 @@ body{
 }
 input[type='text'],input[type='password']{
   background-color: transparent;
+  color: #fff;
 }
 input:focus{
   background-color: transparent;
+  color: #fff;
 }
 .mx-auto{
   border:  1px solid yellow;
@@ -21,4 +23,12 @@ input:focus{
 input[type='submit']{
   width: 100%;
   margin-bottom: 1.2em;
+  color: white;
+  background-color: #2f5280;
+  border-style: none;
+  padding: 2vh 1vh;
+  transition: all 1s ease-in-out;
+}
+.redir a{
+  color: yellow;
 }
