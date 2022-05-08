@@ -1,5 +1,5 @@
 body{
-  background-image:url(../images/learn-header.png);
+  background-image:url(../images/tgip_overview2_banner_desktop_1920x1080.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -11,4 +11,8 @@ input::placeholder{
 }
 input:focus{
   background-color: transparent;
+}
+.mx-auto{
+  border:  1px solid yellow;
+  border-radius: 5%;
 }
