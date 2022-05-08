@@ -5,10 +5,10 @@ from ..models import User
 
 
 class RegistrationForm(FlaskForm):
-  username = StringField('Enter your username', validators=[DataRequired('Username is required')])
-  email = StringField('Enter email address', validators=[DataRequired(), Email()])
-  password = PasswordField('Password', validators=[DataRequired(), EqualTo('password_confirm', message='Passwords must match')])
-  password_confirm = PasswordField('Confirm password', validators=[DataRequired()])
+  username = StringField('Enter your username:', validators=[DataRequired('Username is required')])
+  email = StringField('Enter email address:', validators=[DataRequired(), Email()])
+  password = PasswordField('Password:', validators=[DataRequired(), EqualTo('password_confirm', message='Passwords must match')])
+  password_confirm = PasswordField('Confirm password:', validators=[DataRequired()])
   submit = SubmitField('Sign Up')
 
 

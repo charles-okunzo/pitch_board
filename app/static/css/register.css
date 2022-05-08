@@ -1,0 +1,14 @@
+body{
+  background-image:url(../images/learn-header.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  color: white;
+}
+input::placeholder{
+  background-color: transparent;
+}
+input:focus{
+  background-color: transparent;
+}
