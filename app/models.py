@@ -15,6 +15,8 @@ class User(UserMixin, db.Model):
   username = db.Column(db.String(255), nullable = False, unique = True)
   email = db.Column(db.String(255), unique = True, nullable = False)
   pass_secure = db.Column(db.String(128), unique = True, nullable = False)
+  bio = db.Column(db.String())
+  profile_pic = db.Column(db.String(255))
 
 
   @property

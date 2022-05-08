@@ -10,9 +10,13 @@ class Config():
   SECRET_KEY=os.environ.get('SECRET_KEY')
 
 
-
 class ProdConfig(Config):
-  pass
+  ...
+    # SQLALCHEMY_DATABASE_URI=os.environ.get('SQLALCHEMY_DATABASE_URI')
+    # if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
+    #   SQLALCHEMY_DATABASE_URI=SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://',1)
+
+
 
 
 

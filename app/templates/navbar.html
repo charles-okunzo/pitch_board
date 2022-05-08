@@ -13,7 +13,7 @@
           <ul class="nav navbar-nav">
               <li><a href="/">Home</a></li>
               {% if current_user.is_authenticated %}
-              <li><a href="/">Hello {{current_user.username}}!</a></li>
+              <li><a href="/" title="{{current_user.username}}'s Profile">Hello {{current_user.username}}!</a></li>
               <li><a href="{{url_for('auth.logout')}}">Logout</a></li>
               {% else %}
               <li><a href="{{url_for('auth.register')}}">Register</a></li>
