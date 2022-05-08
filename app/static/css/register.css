@@ -5,6 +5,8 @@ body{
   background-position: center;
   min-height: 100vh;
   color: white;
+  display: grid;
+  place-items: center;
 }
 input::placeholder{
   background-color: transparent;

@@ -9,7 +9,7 @@
     <div class="col-md-4 mx-auto">
       <h2 class="text-center">REGISTER</h2><hr>
       {{wtf.quick_form(registration_form)}}
-      <p>Already have an account? <a href="">Log In</a></p>
+      <p>Already have an account? <a href="{{url_for('auth.login')}}">Log In</a></p>
     </div>
     <div class="col-md-4"></div>
   </div>
