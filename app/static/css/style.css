@@ -35,10 +35,10 @@
   color: #2f5280;
 }
 
-.prof-pic{
+/* .prof-pic{
   display: grid;
   place-items: center;
-}
+} */
 
 .icon-bar{
   background-color: #fff;
@@ -55,4 +55,9 @@ input[type='submit']{
 }
 label{
   color: #2f5280;
+}
+
+.img-thumbnail{
+  min-height: 50vh;
+  width: 100%;
 }
