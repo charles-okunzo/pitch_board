@@ -75,3 +75,29 @@ class Comment(db.Model):
 
   def __repr__(self):
     return f'User {self.title} {self.comment}'
+
+
+class Upvote(db.Model):
+  __tablename__='upvotes'
+
+  id = db.Column(db.Integer, primary_key=True)
+  pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+  def save_upvote(self):
+    db.session.add(self)
+    db.session.commit()
+
+
+class Downvote(db.Model):
+  __tablename__='downvotes'
+
+  id = db.Column(db.Integer, primary_key=True)
+  pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+
+  def save_downvote(self):
+    db.session.add(self)
+    db.session.commit()
