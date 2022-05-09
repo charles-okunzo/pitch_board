@@ -33,3 +33,7 @@ input[type='submit']{
 .redir a{
   color: yellow;
 }
+
+label{
+  color: #2f5280;
+}

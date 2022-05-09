@@ -43,3 +43,16 @@
 .icon-bar{
   background-color: #fff;
 }
+
+input[type='submit']{
+  width: 100%;
+  margin-bottom: 1.2em;
+  color: white;
+  background-color: #2f5280;
+  border-style: none;
+  padding: 2vh 1vh;
+  transition: all 1s ease-in-out;
+}
+label{
+  color: #2f5280;
+}

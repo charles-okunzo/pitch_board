@@ -1,4 +1,4 @@
-
+from app import db
 from flask_login import login_required
 from app.main.forms import UpdateProfile
 from app.models import User
@@ -23,7 +23,7 @@ def profile(uname):
   return render_template('profile/profile.html', user = user)
 
 
-@main.route('/profile/unsme/update', methods=['GET', 'POST'])
+@main.route('/profile/<uname>/update', methods=['GET', 'POST'])
 @login_required
 def update_profile(uname):
   user = User.query.filter_by(username = uname).first()
@@ -36,6 +36,9 @@ def update_profile(uname):
   if form.validate_on_submit():
     user.bio = form.bio.data
     user.username = form.username.data
+
+    db.session.add(user)
+    db.session.commit()
 
     return redirect(url_for('main.profile', uname = user.username))
 

@@ -24,6 +24,9 @@
         {% else %}
         <p>{{user.username | capitalize}} has no bio</p>
         {% endif %}
+        {% if user == current_user %}
+          <a href="{{url_for('main.update_profile', uname = user.username)}}"><button class="btn btn-outline-info">Update Profile</button></a>
+        {% endif %}
       </div>
       <div class="col-md-4 prof-pic">
         {% if user.profile_pic%}
