@@ -15,3 +15,31 @@
 .nav li a:hover{
   color: #2f5280;
 }
+
+.prof{
+  position: relative;
+}
+
+
+.prof::before{
+  content: "";
+  height: 0.2em;
+  width: 1.5em;
+  background-color: yellow;
+  position: absolute;
+  left: -15%;
+  transform: translateY(12px);
+}
+
+.prof-head{
+  color: #2f5280;
+}
+
+.prof-pic{
+  display: grid;
+  place-items: center;
+}
+
+.icon-bar{
+  background-color: #fff;
+}
