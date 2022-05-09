@@ -1,4 +1,6 @@
 from enum import unique
+
+from sqlalchemy import ForeignKey
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -34,3 +36,23 @@ class User(UserMixin, db.Model):
 
   def __repr__(self):
       return f"User {self.username}"
+
+
+class Pitch(db.Model):
+  __tablename__='pitches'
+
+  id = db.Column(db.Integer, primary_key=True)
+  pitch = db.Column(db.String(255), nullable=False)
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  category = db.Column(db.String)
+  upvote = db.relationship('Upvote', backref='upvote', lazy = 'dynamic')
+  downvote = db.relationship('Downvote', backref='downvote', lazy = 'dynamic')
+  comment = db.relationship('Comment', backref = 'comment', lazy = 'dinamic')
+
+  def save_pitch(self):
+    db.session.add(self)
+    db.session.commit()
+
+
+  def __repr__(self) -> str:
+      return f'User {self.pitch} {self.category}'
