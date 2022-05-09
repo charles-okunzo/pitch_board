@@ -19,6 +19,7 @@ class User(UserMixin, db.Model):
   pass_secure = db.Column(db.String(128), unique = True, nullable = False)
   bio = db.Column(db.String())
   profile_pic = db.Column(db.String(255), nullable = False)
+  pitches = db.relationship("Pitches", backref = 'pitch', lazy = 'dynamic')
 
 
   @property
@@ -45,9 +46,9 @@ class Pitch(db.Model):
   pitch = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   category = db.Column(db.String)
-  upvote = db.relationship('Upvote', backref='upvote', lazy = 'dynamic')
-  downvote = db.relationship('Downvote', backref='downvote', lazy = 'dynamic')
-  comment = db.relationship('Comment', backref = 'comment', lazy = 'dinamic')
+  upvotes = db.relationship('Upvote', backref='upvote', lazy = 'dynamic')
+  downvotes = db.relationship('Downvote', backref='downvote', lazy = 'dynamic')
+  comments = db.relationship('Comment', backref = 'comment', lazy = 'dinamic')
 
   def save_pitch(self):
     db.session.add(self)
@@ -56,3 +57,21 @@ class Pitch(db.Model):
 
   def __repr__(self) -> str:
       return f'User {self.pitch} {self.category}'
+
+
+class Comment(db.Model):
+  __tablename__='comments'
+
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String)
+  comment = db.Column(db.String)
+  user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+  pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
+
+  def save_comment(self):
+    db.session.add(self)
+    db.session.commit()
+  
+
+  def __repr__(self):
+    return f'User {self.title} {self.comment}'
