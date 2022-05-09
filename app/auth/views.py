@@ -5,6 +5,7 @@ from .forms import RegistrationForm, LoginForm
 from ..models import User
 from .. import db
 from . import auth
+from ..email import mail_message
 
 
 @auth.route('/login', methods=['GET', 'POST'])
@@ -30,6 +31,10 @@ def register():
     user = User(username = form.username.data, email = form.email.data, password = form.password.data)
     db.session.add(user)
     db.session.commit()
+
+    mail_message('Welcome to PitchBoard!', 'email/welcome_user', user.email, user = user)
+
+
     return redirect(url_for('auth.login'))
 
   return render_template('auth/register.html', registration_form = form, title = title)

@@ -1,0 +1,12 @@
+Hello {{user.username}},
+
+Welcome to PitchBoard.
+
+We have noticed that you tried to login to our application and we would like to welcome you to the family.
+
+In this application you can utilise one minute to make a life time pitch in various categories like Innovation, Entertainment, Technology etc. You can also like and comment to other pitches.
+
+Enjoy!
+
+Regards,
+Admin.
