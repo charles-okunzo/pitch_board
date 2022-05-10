@@ -4,3 +4,9 @@
   {{super()}}
   <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
  {% endblock %}
+
+
+ {% block scripts %}
+ <script src="https://kit.fontawesome.com/85217334a5.js" crossorigin="anonymous"></script>
+ {{super()}}
+ {% endblock %}

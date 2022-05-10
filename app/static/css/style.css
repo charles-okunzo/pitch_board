@@ -89,3 +89,15 @@ input[type='submit']{
 .welcome{
   backdrop-filter: blur(5px);
 }
+
+.fa-regular{
+  font-size: 1.3em;
+}
+
+.fa-thumbs-up{
+  color: green;
+}
+
+.fa-thumbs-down{
+  color: rgb(255, 0, 0);
+}
