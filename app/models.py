@@ -19,10 +19,10 @@ class User(UserMixin, db.Model):
   pass_secure = db.Column(db.String(128), unique = True, nullable = False)
   bio = db.Column(db.String())
   profile_pic = db.Column(db.String(255), nullable = False)
-  pitches = db.relationship("Pitch", backref = 'pitch', lazy = 'dynamic')
-  upvotes = db.relationship('Upvote', backref = 'upvote', lazy = 'dynamic')
-  comments = db.relationship('Comment', backref = 'comment', lazy = 'dynamic')
-  downvotes = db.relationship('Downvotes', backref = 'downvote', lazy = 'dynamic')
+  pitches = db.relationship("Pitch", backref = 'user', lazy = 'dynamic')
+  upvotes = db.relationship('Upvote', backref = 'user', lazy = 'dynamic')
+  comments = db.relationship('Comment', backref = 'user', lazy = 'dynamic')
+  downvotes = db.relationship('Downvote', backref = 'user', lazy = 'dynamic')
 
 
   @property
@@ -49,9 +49,9 @@ class Pitch(db.Model):
   pitch = db.Column(db.String(255), nullable=False)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   category = db.Column(db.String)
-  upvotes = db.relationship('Upvote', backref='upvote', lazy = 'dynamic')
-  downvotes = db.relationship('Downvote', backref='downvote', lazy = 'dynamic')
-  comments = db.relationship('Comment', backref = 'comment', lazy = 'dinamic')
+  upvotes = db.relationship('Upvote', backref='pitch', lazy = 'dynamic')
+  downvotes = db.relationship('Downvote', backref='pitch', lazy = 'dynamic')
+  comments = db.relationship('Comment', backref = 'pitch', lazy = 'dynamic')
 
   def save_pitch(self):
     db.session.add(self)
@@ -77,7 +77,7 @@ class Comment(db.Model):
   
 
   def __repr__(self):
-    return f'User {self.title} {self.comment}'
+    return f'Comment  {self.title} {self.comment}'
 
 
 class Upvote(db.Model):

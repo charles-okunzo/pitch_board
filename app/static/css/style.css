@@ -48,7 +48,7 @@ input[type='submit']{
   width: 100%;
   margin-bottom: 1.2em;
   color: white;
-  background-color: #2f5280;
+  background-color: rgb(47, 82, 128);
   border-style: none;
   padding: 2vh 1vh;
   transition: all 1s ease-in-out;
@@ -60,4 +60,27 @@ input[type='submit']{
 .img-thumbnail{
   min-height: 50vh;
   width: 100%;
+}
+
+.banner{
+  background-image:linear-gradient(to bottom, rgba(47, 82, 128, 0.6), rgba(47, 82, 128,0.3)), url(../images/pexels-photo-6192337.webp);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 50vh;
+  color: #fff;
+}
+
+.banner .row{
+  display: grid;
+  min-height: 50vh;
+  place-items: center;
+}
+
+#cats{
+  color: #2f5280;
+}
+#cats:hover{
+  color: #2f5280;
 }
