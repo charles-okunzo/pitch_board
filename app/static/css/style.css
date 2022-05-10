@@ -110,3 +110,7 @@ input[type='submit']{
   display: none;
   background-color: #e4e9f0;
 }
+
+.leave-com{
+  border-right: 2px solid yellow;
+}

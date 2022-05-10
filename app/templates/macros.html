@@ -15,7 +15,7 @@
           <div style="margin-top: 1%;">
             <a href="" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i> 1</a> | 
             <a href="" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i> 3</a> | 
-            <a title="Leave a comment" id="comment" style="padding-left: 3%; cursor: pointer;"><i class="fa-regular fa-comments"></i></a>
+            <a href="{{url_for('main.new_comment', pitch_id=pitch.id)}}" title="Leave a comment" id="comment" style="padding-left: 3%; cursor: pointer;"><i class="fa-regular fa-comments"></i></a>
           </div>
         </blockquote>
       </div>
@@ -43,28 +43,18 @@
 
 
 {% macro displayComment(comments) %}
+  
 
   {% for comment in comments %}
-  
-  <div id="commentSec">
     <div class="card">
-      <div class="card-header">
-        <h4 style="text-decoration: underline; font-weight: bold;padding-left: 2%; color: #2f5280;">Quote</h4>
-      </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
-          <p>A well-known quote, contained in a blockquote element.</p>
-          <footer class="blockquote-footer">By <cite title="Source Title">Source Title</cite></footer>
+          <p>{{comment.comment}}</p>
+          <footer class="blockquote-footer">By <cite title="Source Title">{{comment.user.username}}</cite></footer>
         </blockquote>
       </div>
     </div><hr>
-    <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>
-    {% if len(comments) == 0 %}
-    <h5>No comments yet! Comment first</h5><hr>
-    <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>  
-    {% endif %}
-  </div>
+    {% endfor %}
 
-  {% endfor %}
 
 {% endmacro %}
