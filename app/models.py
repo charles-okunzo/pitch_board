@@ -19,7 +19,10 @@ class User(UserMixin, db.Model):
   pass_secure = db.Column(db.String(128), unique = True, nullable = False)
   bio = db.Column(db.String())
   profile_pic = db.Column(db.String(255), nullable = False)
-  pitches = db.relationship("Pitches", backref = 'pitch', lazy = 'dynamic')
+  pitches = db.relationship("Pitch", backref = 'pitch', lazy = 'dynamic')
+  upvotes = db.relationship('Upvote', backref = 'upvote', lazy = 'dynamic')
+  comments = db.relationship('Comment', backref = 'comment', lazy = 'dynamic')
+  downvotes = db.relationship('Downvotes', backref = 'downvote', lazy = 'dynamic')
 
 
   @property
