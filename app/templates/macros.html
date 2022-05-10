@@ -3,16 +3,15 @@
 {% if pitches %}
 {% for pitch in pitches %}
 
-<div class="col-md-3">
-  <div class="col-2">
+<div class="col-md-4">
     <div class="card">
       <div class="card-header">
-        <h3 style="text-decoration: underline; font-weight: bold;padding-left: 2%; color: #2f5280;">Quote</h3>
+        <h3 style="text-decoration: underline; font-weight: bold;padding-left: 2%; color: #2f5280;">{{pitch.title}}</h3>
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
-          <p>A well-known quote, contained in a blockquote element.</p>
-          <footer class="blockquote-footer">By <cite title="Source Title">Source Title</cite></footer>
+          <p>{{pitch.pitch}}</p>
+          <footer class="blockquote-footer">By <cite title="Source Title">{{pitch.user.username}}</cite></footer>
           <div style="margin-top: 1%;">
             <a href="" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i> 1</a> | 
             <a href="" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i> 3</a> | 
@@ -20,13 +19,12 @@
           </div>
         </blockquote>
       </div>
-    </div>
   </div>
 </div>
 
 {% endfor %}
 
-{% if pitches is not None %}
+{% if pitches %}
 <h4 style="text-align:center ;"><a href="{{url_for('main.new_pitch')}}"><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>
 {% endif %}
 

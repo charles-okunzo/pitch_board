@@ -1,4 +1,5 @@
 
+from crypt import methods
 from app import db, photos
 from flask_login import current_user, login_required
 from app.main.forms import UpdateProfile, PitchForm, CommentForm
@@ -64,7 +65,7 @@ def update_pic(uname):
   return redirect(url_for('main.profile', uname = uname))
 
 
-@main.route('/comment')
+@main.route('/create/pitch', methods=['POST', 'GET'])
 @login_required
 def new_pitch():
   form  = PitchForm()
@@ -75,6 +76,6 @@ def new_pitch():
 
     new_pitch_obj = Pitch(title=title, category=category,pitch=pitch, user_id=current_user._get_current_object().id, )
     new_pitch_obj.save_pitch()
-    return redirect('main.index')
+    return redirect(url_for('main.index'))
 
   return render_template('pitchform.html', form = form)
