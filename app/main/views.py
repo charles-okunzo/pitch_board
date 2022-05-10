@@ -1,6 +1,6 @@
 
 from app import db, photos
-from flask_login import login_required
+from flask_login import current_user, login_required
 from app.main.forms import UpdateProfile, PitchForm, CommentForm
 from app.models import Pitch, User
 from . import main
@@ -66,5 +66,15 @@ def update_pic(uname):
 
 @main.route('/comment')
 @login_required
-def new_comment():
-  ...
+def new_pitch():
+  form  = PitchForm()
+  if form.validate_on_submit():
+    title = form.title.data
+    category = form.category.data
+    pitch = form.pitch.data
+
+    new_pitch_obj = Pitch(title=title, category=category,pitch=pitch, user_id=current_user._get_current_object().id, )
+    new_pitch_obj.save_pitch()
+    return redirect('main.index')
+
+  return render_template('pitchform.html')

@@ -26,11 +26,18 @@
 
 {% endfor %}
 
+{% if pitches is not None %}
+<h4 style="text-align:center ;"><a href=""><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>
+{% endif %}
+
 {% else %}
 
 <div class="col-12">
   <h3 style="text-align:center ;color: #2f5280;">No pitches added in this category yet. Be the first!</h3>
+  <h4 style="text-align:center ;"><a href=""><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>  
+
 </div>
+
 
 {% endif %}
 
@@ -38,8 +45,6 @@
 
 
 {% macro displayComment(comments) %}
-  
-  {% if comments %}
 
   {% for comment in comments %}
   
@@ -56,16 +61,12 @@
       </div>
     </div><hr>
     <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>
+    {% if comments is None %}
+    <h5>No comments yet! Comment first</h5><hr>
+    <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>  
+    {% endif %}
   </div>
 
   {% endfor %}
-
-  {% else %}
-
-  <h5>No comments yet! Comment first</h5><hr>
-  <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>  
-
-  {% endif %}
-  
 
 {% endmacro %}
