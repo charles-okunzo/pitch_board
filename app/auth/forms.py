@@ -1,3 +1,4 @@
+from unicodedata import category
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, ValidationError, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Email, EqualTo
@@ -29,5 +30,3 @@ class LoginForm(FlaskForm):
   submit = SubmitField('Log In')
 
 
-class PitchForm(FlaskForm):
-  title = StringField('Pitch title', )

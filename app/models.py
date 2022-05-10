@@ -67,7 +67,6 @@ class Comment(db.Model):
   __tablename__='comments'
 
   id = db.Column(db.Integer, primary_key=True)
-  title = db.Column(db.String)
   comment = db.Column(db.String)
   user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
   pitch_id = db.Column(db.Integer, db.ForeignKey('pitches.id'))
