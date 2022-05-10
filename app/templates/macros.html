@@ -59,7 +59,7 @@
       </div>
     </div><hr>
     <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>
-    {% if comments is None %}
+    {% if len(comments) == 0 %}
     <h5>No comments yet! Comment first</h5><hr>
     <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>  
     {% endif %}

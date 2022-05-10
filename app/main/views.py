@@ -3,7 +3,7 @@ from crypt import methods
 from app import db, photos
 from flask_login import current_user, login_required
 from app.main.forms import UpdateProfile, PitchForm, CommentForm
-from app.models import Pitch, User
+from app.models import Comment, Pitch, User
 from . import main
 from flask import redirect, render_template, abort, request, url_for
 
@@ -74,8 +74,21 @@ def new_pitch():
     category = form.category.data
     pitch = form.pitch.data
 
-    new_pitch_obj = Pitch(title=title, category=category,pitch=pitch, user_id=current_user._get_current_object().id, )
+    new_pitch_obj = Pitch(title=title, category=category,pitch=pitch, user_id=current_user._get_current_object().id )
     new_pitch_obj.save_pitch()
     return redirect(url_for('main.index'))
 
   return render_template('pitchform.html', form = form)
+
+
+@main.route('/new/comment/<int:pitch_id>', methods=['POST', 'GET'])
+@login_required
+def new_comment(pitch_id):
+  form = CommentForm()
+  if form.validate_on_submit():
+    comment = form.comment.data
+
+    new_comment_obj = Comment(comment=comment, pitch_id=pitch_id, user_id = current_user._get_current_object().id)
+
+    new_comment_obj.save_comment()
+    return redirect(url_for('main.index', pitch_id=pitch_id))
