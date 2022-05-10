@@ -2,7 +2,7 @@
 from app import db, photos
 from flask_login import login_required
 from app.main.forms import UpdateProfile, PitchForm, CommentForm
-from app.models import User
+from app.models import Pitch, User
 from . import main
 from flask import redirect, render_template, abort, request, url_for
 
@@ -11,7 +11,13 @@ from flask import redirect, render_template, abort, request, url_for
 @main.route('/')
 def index():
   title = 'Welcome to Pitch Board | Make the most out of your minute'
-  return render_template('index.html', title = title)
+
+  pitches = Pitch.query.all()
+  pickup = Pitch.query.filter_by(category = 'Pickup lines').all()
+  technology = Pitch.query.filter_by(category ='Technology').all()
+  innovation = Pitch.query.filter_by(category = 'Innovation').all()
+  promotion = Pitch.query.filter_by(category='Promotion').all()
+  return render_template('index.html', title = title, pitches = pitches, pickup = pickup, technology = technology, innovation = innovation, promotion = promotion)
 
 
 @main.route('/profile/<uname>')
