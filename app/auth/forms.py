@@ -27,3 +27,7 @@ class LoginForm(FlaskForm):
   password = PasswordField('Your password:', validators=[DataRequired()])
   remember = BooleanField('Remember me')
   submit = SubmitField('Log In')
+
+
+class PitchForm(FlaskForm):
+  title = StringField('Pitch title', )

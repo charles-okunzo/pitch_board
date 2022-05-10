@@ -25,14 +25,37 @@
         <p>A well-known quote, contained in a blockquote element.</p>
         <footer class="blockquote-footer">By <cite title="Source Title">Source Title</cite></footer>
         <div style="margin-top: 1%;">
-          <a href="" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i></a> | 
-          <a href="" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i></a> | 
-          <a href="" title="Leave a comment" style="padding-left: 3%;"><i class="fa-regular fa-comments"></i></a>
+          <a href="" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i> 1</a> | 
+          <a href="" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i> 3</a> | 
+          <a title="Leave a comment" id="comment" style="padding-left: 3%; cursor: pointer;"><i class="fa-regular fa-comments"></i></a>
         </div>
       </blockquote>
     </div>
+
   </div>
 </div>
 {% endif %}
+
+{% endmacro %}
+
+
+{% macro displayComment(comments) %}
+
+  
+  <div id="commentSec">
+    <div class="card">
+      <div class="card-header">
+        <h4 style="text-decoration: underline; font-weight: bold;padding-left: 2%; color: #2f5280;">Quote</h4>
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>A well-known quote, contained in a blockquote element.</p>
+          <footer class="blockquote-footer">By <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+      </div>
+    </div><hr>
+    <p><a href=""><i class="fa-solid fa-plus"></i> Add comment...</a></p>
+  </div>
+  
 
 {% endmacro %}
