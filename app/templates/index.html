@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% import 'macros.html' as macro %}
 
 {% block styles %}
   {{super()}}
@@ -13,7 +14,7 @@
   <div class="container-fluid banner">
     <div class="row">
       <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-6 welcome">
         <h2 style="text-align:center ;color: #a7ccfc;">WELCOME TO PITCH<span class="board">BOARD</span>!</h2>
         <p style="text-align:center ; padding: 2%;">
           Here you have one minute to pitch the best idea you have to viewers. <br> Put your creativity to the test.
@@ -44,11 +45,22 @@
     </div>
 
     <div class="row">
-      
+      <div class="tab-content">
+        <div  class="container tab-pane active" id="all"><br>
+            {{macro.displayPitches(pitches)}}
+        </div>
+        <div  class="container tab-pane fade" id="jobs"><br>
+          {{macro.displayPitches(pitches)}}
+        </div>
+        <div  class="container tab-pane fade" id="technology"><br>
+          {{macro.displayPitches(pitches)}}
+        </div>
+        <div  class="container tab-pane fade" id="ads"><br>
+          {{macro.displayPitches(pitches)}}
+            
+        </div>
     </div>
   </div>
-
-hello
 
 
 {% endblock %}

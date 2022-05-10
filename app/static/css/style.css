@@ -8,6 +8,10 @@
   transition: all 500ms ease-in-out;
 }
 
+.navbar-brand{
+  font-family: 'Pacifico', cursive;
+}
+
 .board{
   color: yellow;
 }
@@ -79,8 +83,9 @@ input[type='submit']{
 }
 
 #cats{
-  color: #2f5280;
+  color: #000;
 }
-#cats:hover{
-  color: #2f5280;
+
+.welcome{
+  backdrop-filter: blur(5px);
 }

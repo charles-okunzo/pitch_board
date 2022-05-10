@@ -1,0 +1,20 @@
+{% macro displayPitches(pitches) %}
+
+{% if pitches %}
+{% for pitch in pitches %}
+
+<div class="col-md-4">
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="col-12">
+  <h3 style="text-align:center ;color: #2f5280;">No pitches added in this category yet. Be the first!</h3>
+</div>
+
+{% endif %}
+
+{% endmacro %}
