@@ -95,3 +95,9 @@ def new_comment(pitch_id):
     return redirect(url_for('main.new_comment', pitch_id=pitch_id))
 
   return render_template('commentform.html', form=form, comments=comments)
+
+
+@main.route('/upvote')
+@login_required
+def upvote():
+  ...
