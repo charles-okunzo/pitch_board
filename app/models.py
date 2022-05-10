@@ -93,6 +93,12 @@ class Upvote(db.Model):
     db.session.commit()
 
 
+  @classmethod
+  def get_upvote(cls, id):
+    upvotes = Upvote.query.filter_by(pitch_id = id).all()
+    return upvotes
+
+
 class Downvote(db.Model):
   __tablename__='downvotes'
 
@@ -104,3 +110,9 @@ class Downvote(db.Model):
   def save_downvote(self):
     db.session.add(self)
     db.session.commit()
+
+
+  @classmethod
+  def get_downvote(cls, id):
+    downvotes = Downvote.query.filter_by(pitch_id = id).all()
+    return downvotes

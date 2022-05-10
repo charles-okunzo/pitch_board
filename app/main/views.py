@@ -1,7 +1,7 @@
 
 from app import db, photos
 from flask_login import login_required
-from app.main.forms import UpdateProfile
+from app.main.forms import UpdateProfile, PitchForm, CommentForm
 from app.models import User
 from . import main
 from flask import redirect, render_template, abort, request, url_for
@@ -56,3 +56,9 @@ def update_pic(uname):
     user.profile_pic = path
     db.session.commit()
   return redirect(url_for('main.profile', uname = uname))
+
+
+@main.route('/comment')
+@login_required
+def new_comment():
+  ...
