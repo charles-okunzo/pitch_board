@@ -77,4 +77,4 @@ def new_pitch():
     new_pitch_obj.save_pitch()
     return redirect('main.index')
 
-  return render_template('pitchform.html')
+  return render_template('pitchform.html', form = form)

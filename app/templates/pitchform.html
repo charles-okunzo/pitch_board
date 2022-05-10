@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as  wtf %}
+
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+ {% endblock %}
+
+ {% block navbar %}
+  {% include 'navbar.html' %}
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 update">
+        <h2 style="text-align: center;">POST NEW PITCH</h2><hr>
+          {{wtf.quick_form(form)}}
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+{% endblock %}

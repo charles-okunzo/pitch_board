@@ -27,14 +27,14 @@
 {% endfor %}
 
 {% if pitches is not None %}
-<h4 style="text-align:center ;"><a href=""><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>
+<h4 style="text-align:center ;"><a href="{{url_for('main.new_pitch')}}"><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>
 {% endif %}
 
 {% else %}
 
 <div class="col-12">
   <h3 style="text-align:center ;color: #2f5280;">No pitches added in this category yet. Be the first!</h3>
-  <h4 style="text-align:center ;"><a href=""><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>  
+  <h4 style="text-align:center ;"><a href="{{url_for('main.new_pitch')}}"><i style="text-align:center ;color: #2f5280;" class="fa-solid fa-plus"></i> Add pitch...</a></h4>  
 
 </div>
 
