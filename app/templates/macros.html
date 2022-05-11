@@ -13,8 +13,8 @@
           <p>{{pitch.pitch}}</p>
           <footer class="blockquote-footer">By <cite title="Source Title">{{pitch.user.username}}</cite></footer>
           <div style="margin-top: 1%;">
-            <a href="{{url_for('main.upvote')}}" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i> {{pitch.upvotes.count()}}</a> | 
-            <a href="{{url_for('main.downvote')}}" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i> {{pitch.downvote.count()}}</a> | 
+            <a href="{{url_for('main.upvote', id=pitch.id)}}" title="Upvote" style="padding-right: 3%;"><i class="fa-regular fa-thumbs-up"></i> {{pitch.upvotes.count()}}</a> | 
+            <a href="{{url_for('main.downvote', id=pitch.id)}}" title="Downvote" style="padding: 0 3%;"><i class="fa-regular fa-thumbs-down"></i> {{pitch.downvotes.count()}}</a> | 
             <a href="{{url_for('main.new_comment', pitch_id=pitch.id)}}" title="Leave a comment" id="comment" style="padding-left: 3%; cursor: pointer;"><i class="fa-regular fa-comments"></i></a>
           </div>
         </blockquote>

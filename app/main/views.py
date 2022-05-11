@@ -106,13 +106,13 @@ def upvote(id):
     to_str = f'{pitch_v}'
     print(f'{valid_string} {to_str}')
     if valid_string == to_str:
-      return redirect('main.index', id=id)
+      return redirect(url_for('main.index', id=id))
     else:
       continue
   new_upvote = Upvote(user = current_user, pitch_id = id)
   new_upvote.save_upvote()
 
-  return redirect('main.index', id=id)
+  return redirect(url_for('main.index', id=id))
 
 @main.route('/downvote/<int:id>', methods=['POST','GET'])
 @login_required
@@ -123,13 +123,13 @@ def downvote(id):
     to_str = f'{pitch_v}'
     print(f'{valid_string} {to_str}')
     if valid_string == to_str:
-      return redirect('main.index', id=id)
+      return redirect(url_for('main.index', id=id))
     else:
       continue
   new_downvote = Downvote(user = current_user, pitch_id = id)
   new_downvote.save_downvote()
 
-  return redirect('main.index', id=id)
+  return redirect(url_for('main.index', id=id))
     
 
   
