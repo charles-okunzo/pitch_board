@@ -11,11 +11,19 @@
 ## Description
 This is an application in which users can utilize one minute to make an outstanding pitch. they can pitch in various different categories. They can also like, dislike, and comment on other peoples pitches.
 
+```
+Landing Page
+```
+<img src="./app/static/images/Screenshot from 2022-05-11 13-33-31.png">
+
+
 ## Installation 
 ### Requirements
 
 * Either a computer,phone,tablet or an Ipad
 * An access to the Internet
+
+
 ### Installation
 To get the code..
 
