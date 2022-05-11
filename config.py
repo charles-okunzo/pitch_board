@@ -5,8 +5,7 @@ load_dotenv()
 
 
 class Config():
-  # SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
-  SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://moringa:okunzo254@localhost/pitch_board'
+  SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
   SQLALCHEMY_TRACK_MODIFICATIONS=False
   SECRET_KEY=os.environ.get('SECRET_KEY')
   UPLOADED_PHOTOS_DEST='app/static/photos'
@@ -21,7 +20,7 @@ class Config():
 class ProdConfig(Config):
   SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
   if SQLALCHEMY_DATABASE_URI.startswith('postgres://'):
-    SQLALCHEMY_DATABASE_URI=SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://',1)
+    SQLALCHEMY_DATABASE_URI=SQLALCHEMY_DATABASE_URI.replace('postgres://', 'postgresql://', 1)
 
 
 
