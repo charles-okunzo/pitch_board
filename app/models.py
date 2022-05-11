@@ -95,7 +95,7 @@ class Upvote(db.Model):
 
   @classmethod
   def get_upvote(cls, id):
-    upvotes = Upvote.query.filter_by(pitch_id = id).all()
+    upvotes = cls.query.filter_by(pitch_id = id).all()
     return upvotes
 
 
@@ -114,5 +114,5 @@ class Downvote(db.Model):
 
   @classmethod
   def get_downvote(cls, id):
-    downvotes = Downvote.query.filter_by(pitch_id = id).all()
+    downvotes = cls.query.filter_by(pitch_id = id).all()
     return downvotes

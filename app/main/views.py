@@ -3,7 +3,7 @@ from crypt import methods
 from app import db, photos
 from flask_login import current_user, login_required
 from app.main.forms import UpdateProfile, PitchForm, CommentForm
-from app.models import Comment, Pitch, User
+from app.models import Comment, Downvote, Pitch, Upvote, User
 from . import main
 from flask import redirect, render_template, abort, request, url_for
 
@@ -97,7 +97,39 @@ def new_comment(pitch_id):
   return render_template('commentform.html', form=form, comments=comments)
 
 
-@main.route('/upvote')
+@main.route('/upvote/<int:id>', methods=['POST','GET'])
 @login_required
-def upvote():
-  ...
+def upvote(id):
+  pitch_upvotes = Upvote.get_upvote(id)
+  valid_string = f'{current_user.id}:{id}'
+  for pitch_v in pitch_upvotes:
+    to_str = f'{pitch_v}'
+    print(f'{valid_string} {to_str}')
+    if valid_string == to_str:
+      return redirect('main.index', id=id)
+    else:
+      continue
+  new_upvote = Upvote(user = current_user, pitch_id = id)
+  new_upvote.save_upvote()
+
+  return redirect('main.index', id=id)
+
+@main.route('/downvote/<int:id>', methods=['POST','GET'])
+@login_required
+def downvote(id):
+  pitch_downvotes = Downvote.get_downvote(id)
+  valid_string = f'{current_user.id}:{id}'
+  for pitch_v in pitch_downvotes:
+    to_str = f'{pitch_v}'
+    print(f'{valid_string} {to_str}')
+    if valid_string == to_str:
+      return redirect('main.index', id=id)
+    else:
+      continue
+  new_downvote = Downvote(user = current_user, pitch_id = id)
+  new_downvote.save_downvote()
+
+  return redirect('main.index', id=id)
+    
+
+  
