@@ -84,7 +84,7 @@ def new_pitch():
 @main.route('/new/comment/<int:pitch_id>', methods=['POST', 'GET'])
 @login_required
 def new_comment(pitch_id):
-  comments = Comment.query.all()
+  comments = Comment.query.filter_by(pitch_id=pitch_id).all()
   form = CommentForm()
   if form.validate_on_submit():
     comment = form.comment.data
