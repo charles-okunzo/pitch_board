@@ -8,6 +8,8 @@ from flask_mail import Mail
 import sys
 import logging
 
+from config import ProdConfig
+
 
 photos = UploadSet('photos', IMAGES)
 
@@ -31,6 +33,9 @@ def create_app(config_name):
   #configurations
   from config import config_options
   app.config.from_object(config_options[config_name])
+
+  app.config['SQLALCHEMY_DATABASE_URI'] = ProdConfig.SQLALCHEMY_DATABASE_URI
+  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
   #configure UploadsSet
   configure_uploads(app, photos)
